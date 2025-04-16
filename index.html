@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Icon Gallery</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f9f9f9;
+        padding: 2rem;
+        margin: 0;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 2rem;
+        align-items: center;
+      }
+      .icon-box {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      .icon-box img {
+        width: 48px;
+        height: 48px;
+      }
+      .label {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        color: #333;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Icon Gallery</h1>
+    <div class="grid" id="iconGrid"></div>
+
+    <script>
+      // List your icons here (just the filenames, assuming they're in /icons/)
+      const icons = [
+        "business-internet.svg",
+        "business-voice.svg",
+        "business-wifi.svg",
+        "call-us.svg",
+        "chat-us.svg",
+        "cloud-services.svg",
+        "connectivity.svg",
+        "data-center.svg",
+        "infrastructure-service.svg",
+        "multimedia-content.svg",
+      ];
+
+      const username = "Zaggylee";
+      const repo = "custom-icons";
+      const path = "icons"; // Folder containing the icons
+
+      const grid = document.getElementById("iconGrid");
+
+      icons.forEach((icon) => {
+        const url = `https://cdn.jsdelivr.net/gh/${username}/${repo}/${path}/${icon}`;
+
+        const box = document.createElement("div");
+        box.className = "icon-box";
+
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = icon;
+
+        const label = document.createElement("div");
+        label.className = "label";
+        label.textContent = icon;
+
+        box.appendChild(img);
+        box.appendChild(label);
+        grid.appendChild(box);
+      });
+    </script>
+  </body>
+</html>
